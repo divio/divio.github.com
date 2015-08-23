@@ -9,7 +9,9 @@ var config = _.assign({}, baseConfig, {
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            comments: false
+        }),
         // use react production build (much smaller)
         new webpack.DefinePlugin({
             'process.env': {

@@ -24,7 +24,7 @@ export class App extends Component {
     }
 
     render() {
-        console.count('render');
+        console.log('render');
         // work around a bug (?) in react-router
         let allClassName = classnames({
             'link': true,
