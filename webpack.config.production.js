@@ -10,7 +10,10 @@ var config = _.assign({}, baseConfig, {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
-            comments: false
+            comments: false,
+            compressor: {
+                drop_console: true
+            }
         }),
         // use react production build (much smaller)
         new webpack.DefinePlugin({
