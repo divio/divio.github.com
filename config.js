@@ -1,4 +1,4 @@
-// whitelist languages
+// TODO  whitelist languages?
 export const languages = {
     Python: true,
     JavaScript: true
