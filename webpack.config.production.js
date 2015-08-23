@@ -20,7 +20,7 @@ var config = _.assign({}, baseConfig, {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             },
-            '__DEV__': false
+            '__DEV__': 'false'
         })
     ],
     entry: './index',

@@ -2,15 +2,17 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import * as reducers from './reducers';
 
-const reducer = combineReducers(reducers);
-let createStoreWithMiddleware = applyMiddleware(
-    thunkMiddleware
-)(createStore);
 
+const reducer = combineReducers(reducers);
+let middleWares = [thunkMiddleware];
 if (__DEV__) {
     const createLogger = require('redux-logger');
-    createStoreWithMiddleware = applyMiddleware(createLogger())(createStoreWithMiddleware);
+    middleWares.push(createLogger());
 }
+let createStoreWithMiddleware = applyMiddleware(
+    ...middleWares
+)(createStore);
+
 
 export default function configureStore(initialState) {
     return createStoreWithMiddleware(reducer, initialState);
