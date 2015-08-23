@@ -14,7 +14,8 @@ var config = _.assign({}, baseConfig, {
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
-            }
+            },
+            '__DEV__': false
         })
     ],
     entry: './index',
@@ -24,7 +25,8 @@ var config = _.assign({}, baseConfig, {
             loader: 'babel',
             exclude: /node_modules/,
             query: {
-                optional: ['runtime']
+                optional: ['runtime'],
+                plugins: ['lodash']
             }
         }]
     }
