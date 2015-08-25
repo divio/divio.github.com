@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
+import { includes } from 'lodash';
 import { initApp } from '../actions';
 import { orgName } from '../config';
 import ReposList from './reposlist';
@@ -17,6 +18,14 @@ export class App extends Component {
             this.props.params.lang !== nextProps.params.lang ||
             this.props.repos !== nextProps.repos
         )
+    }
+
+    componentDidUpdate(oldProps) {
+        if (this.props.languages.length &&
+            !includes(this.props.languages, this.props.params.lang) &&
+            this.props.params.lang) {
+            this.context.router.replaceWith('/');
+        }
     }
 
     filterRepos(repos, lang) {
@@ -35,9 +44,7 @@ export class App extends Component {
                 <h1>Divio Open Source</h1>
                 <Link className={allClassName} activeClassName="" to="/">all</Link>
                 {this.props.languages.map((lang) =>
-                    <Link className="link"
-                        activeClassName="active"
-                        key={lang} to={`/${lang}`}>{lang}</Link>
+                    <Link className="link" key={lang} to={`/${lang}`}>{lang}</Link>
                 )}
 
                 <div>
@@ -51,6 +58,12 @@ export class App extends Component {
         );
     }
 }
+
+// fixme static props on class
+App.contextTypes = {
+    router: React.PropTypes.object
+}
+
 
 export default connect((state) => ({
     repos: state.repos,

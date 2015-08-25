@@ -6,12 +6,6 @@ import configureStore from '../store';
 import App from './app';
 
 const store = configureStore();
-const redirectFromWrongLanguage = (nextState, transition) => {
-    const languages = store.getState().languages;
-    if (!includes(languages, nextState.params.lang) && nextState.params.lang) {
-        transition.to('/');
-    }
-};
 
 export default class Root extends Component {
     render() {
@@ -20,8 +14,7 @@ export default class Root extends Component {
                 {() =>
                     // has to be wrapped in a func, limitation of react@0.13.3
                     <Router history={this.props.history}>
-                        <Route path="/(:lang)" component={App}
-                            onEnter={redirectFromWrongLanguage} />
+                        <Route path="/(:lang)" component={App} />
                     </Router>
                 }
             </Provider>
