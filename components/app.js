@@ -7,7 +7,12 @@ import { initApp } from '../actions';
 import { orgName } from '../config';
 import ReposList from './reposlist';
 
-export class App extends Component {
+@connect((state) => state)
+export default class App extends Component {
+    static contextTypes = {
+        router: React.PropTypes.object
+    }
+
     componentDidMount() {
         this.props.dispatch(initApp(orgName));
     }
@@ -58,15 +63,3 @@ export class App extends Component {
         );
     }
 }
-
-// fixme static props on class
-App.contextTypes = {
-    router: React.PropTypes.object
-}
-
-
-export default connect((state) => ({
-    repos: state.repos,
-    languages: state.languages,
-    isFetching: state.isFetching
-}))(App);

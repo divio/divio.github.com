@@ -31,7 +31,8 @@ var config = _.assign({}, baseConfig, {
             exclude: /node_modules/,
             query: {
                 optional: ['runtime'],
-                plugins: ['lodash']
+                plugins: ['lodash'],
+                stage: 0,
             }
         }]
     }
