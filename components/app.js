@@ -47,15 +47,19 @@ export default class App extends Component {
             'link': true,
             'active': !this.props.params.lang
         });
-        if (this.props.errorMessage) {
-            return (<div>{this.props.errorMessage}</div>);
+        if (this.props.errorMessage && !this.props.repos.length) {
+            return (
+                <div className="container">
+                    <div className="error">{this.props.errorMessage}</div>
+                </div>
+            );
         }
         return (
             <div className="container">
                 <h1>Divio Open Source</h1>
                 <div className="subheader">
                     <div className="meta">
-                        {this.props.members.length || '...'} members, {this.props.repos.length || '...'} repos
+                        {this.props.members || '...'} members, {this.props.repos.length || '...'} repos
                     </div>
 
                     <div className="navigation">

@@ -5,3 +5,4 @@ export const languages = {
 };
 
 export const orgName = 'divio';
+export const INVALIDATE_TIME = 3600 * 1000;

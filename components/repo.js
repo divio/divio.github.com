@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 export default class Repo extends Component {
     render() {
-        // console.log(this.props);
         return (
             <article className="repo">
                 <h3 className="repo-name">{this.props.name}</h3>

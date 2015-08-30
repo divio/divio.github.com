@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import { INVALIDATE_TIME } from './config';
 
 export const FETCH_REPOS = 'FETCH_REPOS';
 export const FETCH_REPOS_SUCCESS = 'FETCH_REPOS_SUCCESS';
@@ -53,7 +54,16 @@ export function failMembers(orgName, data) {
 }
 
 export function initApp(orgName) {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        var state = getState();
+        var currentTime = Date.now();
+
+        if (state.repos.length &&
+            state.members &&
+            currentTime - state.lastFetched < INVALIDATE_TIME) {
+            return;
+        }
+
         dispatch(requestRepos(orgName));
         fetch(`https://api.github.com/orgs/${orgName}/repos?per_page=999&type=source`)
             .then(response => response.json().then(json => ({ json, response })))

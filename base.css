@@ -64,6 +64,10 @@ hr {
     overflow: hidden;
 }
 
+.error {
+    margin-top: 40px;
+}
+
 .repo-language {
     float: left;
 }
