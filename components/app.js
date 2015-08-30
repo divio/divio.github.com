@@ -21,7 +21,8 @@ export default class App extends Component {
         return (
             this.props.route !== nextProps.route ||
             this.props.params.lang !== nextProps.params.lang ||
-            this.props.repos !== nextProps.repos
+            this.props.repos !== nextProps.repos ||
+            this.props.errorMessage !== nextProps.errorMessage
         )
     }
 
@@ -44,9 +45,15 @@ export default class App extends Component {
             'link': true,
             'active': !this.props.params.lang
         });
+        if (this.props.errorMessage) {
+            return (<div>{this.props.errorMessage}</div>);
+        }
         return (
             <div>
                 <h1>Divio Open Source</h1>
+                <div>
+                    {this.props.members.length || '...'} members, {this.props.repos.length || '...'} repos
+                </div>
                 <Link className={allClassName} activeClassName="" to="/">all</Link>
                 {this.props.languages.map((lang) =>
                     <Link className="link" key={lang} to={`/${lang}`}>{lang}</Link>
