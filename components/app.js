@@ -49,18 +49,19 @@ export default class App extends Component {
             return (<div>{this.props.errorMessage}</div>);
         }
         return (
-            <div>
+            <div className="container">
                 <h1>Divio Open Source</h1>
-                <div>
-                    {this.props.members.length || '...'} members, {this.props.repos.length || '...'} repos
-                </div>
-                <Link className={allClassName} activeClassName="" to="/">all</Link>
-                {this.props.languages.map((lang) =>
-                    <Link className="link" key={lang} to={`/${lang}`}>{lang}</Link>
-                )}
+                <div className="subheader">
+                    <div className="meta">
+                        {this.props.members.length || '...'} members, {this.props.repos.length || '...'} repos
+                    </div>
 
-                <div>
-                    Currently showing {this.props.params.lang || 'all'} repos
+                    <div className="navigation">
+                        <Link className={allClassName} activeClassName="" to="/">all</Link>
+                        {this.props.languages.map((lang) =>
+                            <Link className="link" key={lang} to={`/${lang}`}>{lang}</Link>
+                        )}
+                    </div>
                 </div>
 
                 <hr />
