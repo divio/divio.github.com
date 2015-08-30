@@ -52,7 +52,6 @@ export function failMembers(orgName, data) {
     }
 }
 
-// TODO think about implementing api middleware instead
 export function initApp(orgName) {
     return (dispatch) => {
         dispatch(requestRepos(orgName));
