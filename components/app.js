@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, addons } from 'react/addons';
 import { Link } from 'react-router';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
@@ -6,6 +6,8 @@ import { includes } from 'lodash';
 import { initApp } from '../actions';
 import { orgName } from '../config';
 import ReposList from './reposlist';
+
+const CSSTransitionGroup = addons.CSSTransitionGroup;
 
 @connect((state) => state)
 export default class App extends Component {
@@ -66,7 +68,9 @@ export default class App extends Component {
 
                 <hr />
 
-                <ReposList repos={this.filterRepos(this.props.repos, this.props.params.lang)} />
+                <CSSTransitionGroup transitionName="reveal">
+                    <ReposList key={this.props.params.lang || 'all'} repos={this.filterRepos(this.props.repos, this.props.params.lang)} />
+                </CSSTransitionGroup>
             </div>
         );
     }

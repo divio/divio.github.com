@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    overflow-x: hidden;
     overflow-y: scroll;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -15,6 +16,7 @@ html, body {
 }
 
 .container {
+    position: relative;
     width: 80%;
     margin: 0 auto;
 }
@@ -58,7 +60,11 @@ hr {
     margin-top: 0px;
 }
 
-.repo-lang {
+.repo-meta {
+    overflow: hidden;
+}
+
+.repo-language {
     float: left;
 }
 .repo-info {
@@ -78,4 +84,30 @@ hr {
 .sr-only {
     /* yeah yeah */
     display: none;
+}
+
+.reveal-enter {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    /* transform: translateX(125%) skew(10deg); */
+}
+
+.reveal-enter.reveal-enter-active {
+    opacity: 1;
+    /* transform: translateX(0) skew(0); */
+    transition: all 0.1s ease-out;
+}
+
+.reveal-leave {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-leave.reveal-leave-active {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    /* transform: translateX(-125%) skew(-10deg); */
+    transition: all 0.1s ease-out;
 }
