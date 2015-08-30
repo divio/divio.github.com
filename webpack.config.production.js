@@ -23,7 +23,7 @@ var config = _.assign({}, baseConfig, {
             '__DEV__': 'false'
         })
     ],
-    entry: './index',
+    entry: './src/index',
     module: {
         loaders: [{
             test: /\.js$/,
