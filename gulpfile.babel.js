@@ -8,7 +8,7 @@ import devConfig from './webpack.config';
 import productionConfig from './webpack.config.production';
 
 gulp.task('sass', () =>
-    gulp.src('sass/*.scss')
+    gulp.src('sass/**/*.scss')
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(autoprefixer())
         .pipe(gulp.dest('./')));
@@ -39,5 +39,5 @@ gulp.task('webpack:build', (callback) => {
 });
 
 gulp.task('default', ['sass', 'webpack:server'], () => {
-    gulp.watch('sass/*.scss', ['sass']);
+    gulp.watch('sass/**/*.scss', ['sass']);
 });

@@ -56,10 +56,14 @@ export default class App extends Component {
         }
         return (
             <div className="container">
-                <h1>Divio Open Source</h1>
                 <div className="subheader">
                     <div className="meta">
-                        {this.props.members || '...'} members, {this.props.repos.length || '...'} repos
+                        <span className="count">
+                            {this.props.repos.length || '...'} Repos
+                        </span>
+                        <span className="count">
+                            {this.props.members || '...'} Members
+                        </span>
                     </div>
 
                     <div className="navigation">
@@ -69,8 +73,6 @@ export default class App extends Component {
                         )}
                     </div>
                 </div>
-
-                <hr />
 
                 <CSSTransitionGroup transitionName="reveal">
                     <ReposList key={this.props.params.lang || 'all'} repos={this.filterRepos(this.props.repos, this.props.params.lang)} />

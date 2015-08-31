@@ -1,0 +1,11 @@
+.navigation {
+    a {
+        margin-left: 20px;
+        display: inline-block;
+        text-transform: uppercase;
+        text-decoration: none;
+        &.active {
+            border-top: 1px solid;
+        }
+    }
+}
