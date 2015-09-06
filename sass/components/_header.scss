@@ -9,15 +9,25 @@ $screen-xs-max: 768px;
     background-position: 50% 50%;
     background-color: #048aa9;
 
+    .container {
+        height: 360px - 45px;
+        display: flex;
+        /* padding-top: 30px; */
+    }
+
     h1 {
         padding: 0;
         margin: 0;
         font-size: 30px;
-        float: left;
+        position: absolute;
+        left: 0;
+        top: 0;
     }
 
     a {
-        float: right;
+        position: absolute;
+        right: 0;
+        top: 0;
         border: 1px solid white;
         border-radius: 3px;
         text-transform: uppercase;
@@ -33,5 +43,19 @@ $screen-xs-max: 768px;
         @media (max-width: $screen-xs-max) {
             padding: 0 10px;
         }
+    }
+}
+
+.lead {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 38px;
+    line-height: 50px;
+
+    small {
+        display: block;
+        font-size: 20px;
+        line-height: 30px;
     }
 }

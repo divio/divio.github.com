@@ -13,7 +13,6 @@ export default class Repo extends Component {
                 </div>
                 <div className="repo-meta">
                     <span className="repo-language">{this.props.language || ' '}</span>
-
                     <span className="repo-stars">
                         <span className="icon icon-star">
                             <span className="sr-only">Stars: </span>
