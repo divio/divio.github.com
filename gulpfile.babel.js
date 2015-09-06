@@ -21,7 +21,7 @@ gulp.task('webpack:server', () => {
         stats: {
             colors: true
         }
-    }).listen(process.env.PORT || 3000, 'localhost', function (err) {
+    }).listen(process.env.PORT || 3000, '0.0.0.0', function (err) {
         if (err) {
             throw new gutil.PluginError("webpack-dev-server", err);
         }
