@@ -1,11 +1,10 @@
 import React, { Component, addons } from 'react/addons';
-import { Link } from 'react-router';
-import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { includes } from 'lodash';
 import { initApp } from '../actions';
 import { orgName } from '../config';
 import ReposList from './reposlist';
+import Navigation from './navigation';
 
 const CSSTransitionGroup = addons.CSSTransitionGroup;
 
@@ -42,11 +41,6 @@ export default class App extends Component {
 
     render() {
         console.log('render');
-        // work around a bug (?) in react-router
-        let allClassName = classnames({
-            'link': true,
-            'active': !this.props.params.lang
-        });
         if (this.props.errorMessage && !this.props.repos.length) {
             return (
                 <div className="container">
@@ -56,7 +50,7 @@ export default class App extends Component {
         }
         return (
             <div className="container">
-                <div className="subheader">
+                <div className="subheader clearfix">
                     <div className="meta">
                         <span className="count">
                             {this.props.repos.length || '...'} Repos
@@ -66,16 +60,12 @@ export default class App extends Component {
                         </span>
                     </div>
 
-                    <div className="navigation">
-                        <Link className={allClassName} activeClassName="" to="/">all</Link>
-                        {this.props.languages.map((lang) =>
-                            <Link className="link" key={lang} to={`/${lang}`}>{lang}</Link>
-                        )}
-                    </div>
+                    <Navigation {...this.props} />
                 </div>
 
                 <CSSTransitionGroup transitionName="reveal">
-                    <ReposList key={this.props.params.lang || 'all'} repos={this.filterRepos(this.props.repos, this.props.params.lang)} />
+                    <ReposList key={this.props.params.lang || 'all'}
+                        repos={this.filterRepos(this.props.repos, this.props.params.lang)} />
                 </CSSTransitionGroup>
             </div>
         );
