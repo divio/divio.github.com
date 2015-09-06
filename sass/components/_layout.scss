@@ -1,0 +1,18 @@
+$screen-xs-max: 768px;
+.container {
+    position: relative;
+    width: 90%;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.meta {
+    float: left;
+    @media (max-width: $screen-xs-max) {
+        float: none;
+    }
+}
+
+.error {
+    margin-top: 40px;
+}

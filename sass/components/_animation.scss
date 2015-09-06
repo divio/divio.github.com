@@ -1,0 +1,24 @@
+.reveal-enter {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    /* transform: translateX(125%) skew(10deg); */
+}
+
+.reveal-enter.reveal-enter-active {
+    opacity: 1;
+    /* transform: translateX(0) skew(0); */
+    transition: all 0.1s ease-out;
+}
+
+.reveal-leave {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-leave.reveal-leave-active {
+    width: 100%;
+    opacity: 0;
+    /* transform: translateX(-125%) skew(-10deg); */
+    transition: all 0.1s ease-out;
+}

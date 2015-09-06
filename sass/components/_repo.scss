@@ -1,0 +1,112 @@
+$screen-xs-max: 768px;
+.repo {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    border-top: 1px solid #e4e4e6;
+    border-bottom: 1px solid #e4e4e6;
+    padding: 30px 0;
+    display: table;
+    width: 100%;
+    font-size: 14px;
+
+    &:hover {
+        text-decoration: none;
+        border-top: 1px solid #59c892;
+        border-bottom: 1px solid #59c892;
+        background-color: #fafafa;
+        z-index: 1;
+    }
+    @media (max-width: $screen-xs-max) {
+        padding-left: 10px;
+    }
+}
+
+.repo + .repo {
+    margin-top: -1px;
+}
+
+.repo-icon {
+    display: table-cell;
+    font-size: 36px;
+    width: 36px;
+    padding: 0 25px;
+    vertical-align: middle;
+    @media (max-width: $screen-xs-max) {
+        display: none;
+    }
+}
+.repo-name {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.repo-language {
+    text-transform: uppercase;
+    @media (max-width: $screen-xs-max) {
+        float: left;
+    }
+}
+.repo-info {
+    display: table-cell;
+    vertical-align: middle;
+    @media (max-width: $screen-xs-max) {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+.repo-meta {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    font-weight: 300;
+    line-height: 18px;
+    white-space: nowrap;
+    padding-left: 80px;
+    @media (max-width: $screen-xs-max) {
+        display: block;
+        padding-left: 0px;
+        text-align: left;
+    }
+
+    .icon {
+        color: #bfbfbf;
+        margin-right: 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.repo-stars {
+    position: relative;
+    padding-left: 20px;
+    display: inline-block;
+    text-align: left;
+    margin-left: 20px;
+    width: 55px;
+    white-space: nowrap;
+    @media (max-width: $screen-xs-max) {
+        float: right;
+    }
+}
+.repo-forks {
+    position: relative;
+    padding-left: 15px;
+    display: inline-block;
+    text-align: left;
+    margin-left: 20px;
+    width: 60px;
+    white-space: nowrap;
+    @media (max-width: $screen-xs-max) {
+        float: right;
+    }
+}
+
+.repo-description {
+    clear: both;
+    color: #888;
+    margin-top: 10px;
+}
+

@@ -1,0 +1,28 @@
+$screen-xs-max: 768px;
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: "Museo Sans W01", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    min-height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    margin: 0;
+}
+
+body {
+    font-weight: 100;
+    margin-bottom: 75px;
+    @media (max-width: $screen-xs-max) {
+        margin-bottom: 0px;
+    }
+}
+

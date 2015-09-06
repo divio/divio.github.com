@@ -1,3 +1,4 @@
+$screen-xs-max: 768px;
 .footer {
     position: absolute;
     bottom: 0;
@@ -5,11 +6,35 @@
     right: 0;
     height: 75px;
     line-height: 75px;
+    @media (max-width: $screen-xs-max) {
+        line-height: normal;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        position: static;
+        height: auto;
+    }
 
+    .pull-left,
+    .pull-right {
+        @media (max-width: $screen-xs-max) {
+            float: none;
+        }
+    }
     a {
-        margin-right: 10px;
+        color: #00bbff;
+        margin-right: 30px;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
         &:last-child {
             margin-right: 0;
         }
+    }
+}
+
+.copyright {
+    @media (max-width: $screen-xs-max) {
+        margin-bottom: 10px;
     }
 }
