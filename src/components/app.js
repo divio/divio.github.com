@@ -2,7 +2,7 @@ import React, { Component, addons } from 'react/addons';
 import { connect } from 'react-redux';
 import { includes } from 'lodash';
 import { initApp } from '../actions';
-import { orgName } from '../config';
+import { ORG_NAME } from '../config';
 import ReposList from './reposlist';
 import Navigation from './navigation';
 
@@ -15,7 +15,7 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(initApp(orgName));
+        this.props.dispatch(initApp(ORG_NAME));
     }
 
     shouldComponentUpdate(nextProps) {

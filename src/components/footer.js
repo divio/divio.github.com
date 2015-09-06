@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { LINKS } from '../config';
 
 export default class Footer extends Component {
     render() {
@@ -7,9 +8,9 @@ export default class Footer extends Component {
                 <div className="container">
                     <div className="copyright pull-left">Copyright 2015 Divio AG. All rights reserved.</div>
                     <div className="pull-right">
-                        <a href="http://www.divio.com/en/about-us/">About us</a>
-                        <a href="http://www.divio.com/en/contact/">Contact</a>
-                        <a href="http://www.divio.com/en/careers/">Join us</a>
+                        {Object.keys(LINKS.FOOTER).map((item) =>
+                            <a key={item} href={LINKS.FOOTER[item]}>{item}</a>
+                        )}
                     </div>
                 </div>
             </div>
