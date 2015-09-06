@@ -20,6 +20,7 @@ export function repos(state = [], action) {
                     'language',
                     'stargazers_count',
                     'forks_count',
+                    'html_url',
                     'description'
                 ]));
         default:

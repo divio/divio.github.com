@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 export default class Repo extends Component {
     render() {
         return (
-            <article className="repo">
+            <a className="repo" href={this.props.html_url}>
+                <div className="repo-icon icon icon-github"></div>
                 <div className="repo-info">
                     <h3 className="repo-name">{this.props.name}</h3>
                     <div className="repo-description">
@@ -12,10 +13,22 @@ export default class Repo extends Component {
                 </div>
                 <div className="repo-meta">
                     <span className="repo-language">{this.props.language || ' '}</span>
-                    <span className="repo-stars">Stars: {this.props.stargazers_count}</span>
-                    <span className="repo-forks">Forks: {this.props.forks_count}</span>
+
+                    <span className="repo-stars">
+                        <span className="icon icon-star">
+                            <span className="sr-only">Stars: </span>
+                        </span>
+                        {this.props.stargazers_count}
+                    </span>
+
+                    <span className="repo-forks">
+                        <span className="icon icon-fork">
+                            <span className="sr-only">Forks: </span>
+                        </span>
+                        {this.props.forks_count}
+                    </span>
                 </div>
-            </article>
+            </a>
         )
     }
 }
