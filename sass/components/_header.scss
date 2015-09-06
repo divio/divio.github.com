@@ -1,21 +1,19 @@
 $screen-xs-max: 768px;
 .header {
+    position: relative;
+    color: white;
+    height: 360px;
+    padding-top: 45px;
     background-image: url('img/bg.jpg');
     background-size: cover;
     background-position: 50% 50%;
     background-color: #048aa9;
-    color: white;
-    height: 360px;
-    padding-top: 45px;
 
     h1 {
         padding: 0;
         margin: 0;
         font-size: 30px;
         float: left;
-        @media (max-width: $screen-xs-max) {
-            /* font-size: 26px; */
-        }
     }
 
     a {
@@ -33,9 +31,6 @@ $screen-xs-max: 768px;
             background-color: rgba(white, 0.1);
         }
         @media (max-width: $screen-xs-max) {
-            /* font-size: 13px; */
-            /* line-height: 26px; */
-            /* height: 26px; */
             padding: 0 10px;
         }
     }
