@@ -5,12 +5,12 @@ export default class Footer extends Component {
         return (
             <div className="footer">
                 <div className="container">
-                    <span className="copyright pull-left">Copyright 2015 Divio AG. All rights reserved.</span>
-                    <span className="pull-right">
-                        <a href="#">About us</a>
-                        <a href="#">Contact</a>
-                        <a href="#">Join us</a>
-                    </span>
+                    <div className="copyright pull-left">Copyright 2015 Divio AG. All rights reserved.</div>
+                    <div className="pull-right">
+                        <a href="http://www.divio.com/en/about-us/">About us</a>
+                        <a href="http://www.divio.com/en/contact/">Contact</a>
+                        <a href="http://www.divio.com/en/careers/">Join us</a>
+                    </div>
                 </div>
             </div>
         )
