@@ -10,10 +10,9 @@ export default class Header extends Component {
                     <a href={LINKS.HOME}>Visit us</a>
                     <div className="lead">
                         <div>
-                            Lorem Ipsum is simply dummy text of the <br />
-                            printing and typesetting industry.
+                            Proudly contributing to open-source software<br/>since 2007
                         </div>
-                        <small>Lorem Ipsum is simply dummy text</small>
+                        <small>Check out the projects we're involved in</small>
                     </div>
                 </div>
             </div>
