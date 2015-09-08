@@ -7,6 +7,7 @@ import {
     FETCH_MEMBERS_FAILURE
 } from '../actions';
 import { compact, pluck, pick, uniq, sortBy } from 'lodash';
+import { combineReducers } from 'redux';
 
 export function repos(state = [], action) {
     switch (action.type) {
@@ -68,3 +69,11 @@ export function languages(state = [], action) {
             return state;
     }
 }
+
+export default combineReducers({
+    errorMessage,
+    languages,
+    lastFetched,
+    repos,
+    members
+});
