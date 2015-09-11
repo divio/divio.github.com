@@ -12,7 +12,7 @@ import { combineReducers } from 'redux';
 export function repos(state = [], action) {
     switch (action.type) {
         case FETCH_REPOS_SUCCESS:
-            return sortBy(action.data, 'stargazers_count')
+            return sortBy([...state, ...action.data], 'stargazers_count')
                 .reverse()
                 // make it smaller for smaller persistence layer
                 .map(item => pick(item, [
@@ -29,10 +29,11 @@ export function repos(state = [], action) {
     }
 }
 
-export function members(state = 0, action) {
+export function members(state = [], action) {
     switch (action.type) {
         case FETCH_MEMBERS_SUCCESS:
-            return action.data.length;
+            return uniq([...state, ...action.data], 'login')
+                .map(item => pick(item, 'login'));
         default:
             return state;
     }
@@ -64,7 +65,7 @@ export function errorMessage(state = '', action) {
 export function languages(state = [], action) {
     switch (action.type) {
         case FETCH_REPOS_SUCCESS:
-            return compact(uniq(pluck(action.data, 'language')));
+            return compact(uniq([...state, ...pluck(action.data, 'language')]));
         default:
             return state;
     }

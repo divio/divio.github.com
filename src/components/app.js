@@ -2,7 +2,7 @@ import React, { Component, addons } from 'react/addons';
 import { connect } from 'react-redux';
 import { includes } from 'lodash';
 import { initApp } from '../actions';
-import { ORG_NAME } from '../config';
+import { GITHUB_ORGANISATIONS } from '../config';
 import ReposList from './reposlist';
 import Navigation from './navigation';
 
@@ -15,7 +15,7 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(initApp(ORG_NAME));
+        this.props.dispatch(initApp(GITHUB_ORGANISATIONS));
     }
 
     shouldComponentUpdate(nextProps) {
@@ -56,7 +56,7 @@ export default class App extends Component {
                             {this.props.repos.length || '...'} Repos
                         </span>
                         <span className="count">
-                            {this.props.members || '...'} Members
+                            {this.props.members.length || '...'} Members
                         </span>
                     </div>
 
