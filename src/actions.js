@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { INVALIDATE_TIME } from './config';
+import { VERSION, INVALIDATE_TIME } from './config';
 
 export const FETCH_REPOS = 'FETCH_REPOS';
 export const FETCH_REPOS_SUCCESS = 'FETCH_REPOS_SUCCESS';
@@ -7,6 +7,7 @@ export const FETCH_REPOS_FAILURE = 'FETCH_REPOS_FAILURE';
 export const FETCH_MEMBERS = 'FETCH_MEMBERS';
 export const FETCH_MEMBERS_SUCCESS = 'FETCH_MEMBERS_SUCCESS';
 export const FETCH_MEMBERS_FAILURE = 'FETCH_MEMBERS_FAILURE';
+export const SET_VERSION = 'SET_VERSION';
 
 export function requestRepos(orgName) {
     return {
@@ -52,17 +53,26 @@ export function failMembers(orgName, data) {
         data
     }
 }
+export function setVersion(version) {
+    return {
+        type: SET_VERSION,
+        version
+    }
+}
 
 export function initApp(orgNames) {
     return (dispatch, getState) => {
         var state = getState();
         var currentTime = Date.now();
 
-        if (state.repos.length &&
+        if (VERSION === state.version &&
+            state.repos.length &&
             state.members &&
             currentTime - state.lastFetched < INVALIDATE_TIME) {
             return;
         }
+
+        dispatch(setVersion(VERSION));
 
         orgNames.forEach((orgName) => {
             dispatch(requestRepos(orgName));

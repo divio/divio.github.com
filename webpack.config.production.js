@@ -3,6 +3,7 @@
 var webpack = require('webpack');
 var _ = require('lodash');
 var baseConfig = require('./webpack.config');
+var packagejson = require('./package.json');
 
 var config = _.assign({}, baseConfig, {
     devtool: false,
@@ -20,7 +21,8 @@ var config = _.assign({}, baseConfig, {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             },
-            '__DEV__': 'false'
+            '__DEV__': 'false',
+            '__VERSION__': JSON.stringify(packagejson.version)
         })
     ],
     entry: './src/index',

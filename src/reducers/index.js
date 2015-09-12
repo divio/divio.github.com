@@ -4,7 +4,8 @@ import {
     FETCH_REPOS_FAILURE,
     FETCH_MEMBERS,
     FETCH_MEMBERS_SUCCESS,
-    FETCH_MEMBERS_FAILURE
+    FETCH_MEMBERS_FAILURE,
+    SET_VERSION
 } from '../actions';
 import { compact, pluck, pick, uniq, sortBy } from 'lodash';
 import { combineReducers } from 'redux';
@@ -24,6 +25,17 @@ export function repos(state = [], action) {
                     'html_url',
                     'description'
                 ]));
+        case SET_VERSION:
+            return [];
+        default:
+            return state;
+    }
+}
+
+export function version(state = '', action) {
+    switch (action.type) {
+        case SET_VERSION:
+            return action.version;
         default:
             return state;
     }
@@ -34,6 +46,8 @@ export function members(state = [], action) {
         case FETCH_MEMBERS_SUCCESS:
             return uniq([...state, ...action.data], 'login')
                 .map(item => pick(item, 'login'));
+        case SET_VERSION:
+            return [];
         default:
             return state;
     }
@@ -66,6 +80,8 @@ export function languages(state = [], action) {
     switch (action.type) {
         case FETCH_REPOS_SUCCESS:
             return compact(uniq([...state, ...pluck(action.data, 'language')]));
+        case SET_VERSION:
+            return [];
         default:
             return state;
     }
@@ -76,5 +92,6 @@ export default combineReducers({
     languages,
     lastFetched,
     repos,
-    members
+    members,
+    version
 });
