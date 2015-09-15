@@ -7,9 +7,11 @@ export default class Repo extends Component {
                 <div className="repo-icon icon icon-github"></div>
                 <div className="repo-info">
                     <h3 className="repo-name">{this.props.name}</h3>
-                    <div className="repo-description">
-                        {this.props.description}
-                    </div>
+                    {this.props.description ? (
+                        <div className="repo-description">
+                            {this.props.description}
+                        </div>
+                    ) : null}
                 </div>
                 <div className="repo-meta">
                     <span className="repo-language">{this.props.language || ' '}</span>
