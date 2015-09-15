@@ -1,5 +1,8 @@
+'use strict';
+
 var path = require('path');
 var webpack = require('webpack');
+var packagejson = require('./package.json');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -17,7 +20,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
-            '__DEV__': 'true'
+            '__DEV__': 'true',
+            '__VERSION__': JSON.stringify(packagejson.version)
         })
     ],
     resolve: {
