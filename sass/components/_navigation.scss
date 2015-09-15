@@ -12,11 +12,11 @@ $screen-xs-max: 768px;
         text-decoration: none;
         border-top: 1px solid transparent;
         &:hover {
-            color: #59c892;
+            color: #00bbff;
         }
         &.active {
-            color: #59c892;
-            border-top: 1px solid #59c892;
+            color: #00bbff;
+            border-top: 1px solid #00bbff;
         }
         &:last-child {
             margin-right: 0px;

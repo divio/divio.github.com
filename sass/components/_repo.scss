@@ -12,10 +12,13 @@ $screen-xs-max: 768px;
 
     &:hover {
         text-decoration: none;
-        border-top: 1px solid #59c892;
-        border-bottom: 1px solid #59c892;
+        border-top: 1px solid darken(#e4e4e6, 10%);
+        border-bottom: 1px solid darken(#e4e4e6, 10%);
         background-color: #fafafa;
         z-index: 1;
+        .repo-language {
+            color: #00bbff;
+        }
     }
     @media (max-width: $screen-xs-max) {
         padding-left: 10px;
